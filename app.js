@@ -12,49 +12,49 @@ const SERVICES = [
 
   {
     name: "Sofa",
-    icon: "/assets/icons/sofa.png",
+    icon: "assets/icons/sofa.png",
     desc: "Cleaning sofa"
   },
 
   {
     name: "Kasur",
-    icon: "/assets/icons/kasur.png",
+    icon: "assets/icons/kasur.png",
     desc: "Cleaning springbed"
   },
 
   {
     name: "Jok Mobil",
-    icon: "/assets/icons/jokmobil.png",
+    icon: "assets/icons/jokmobil.png",
     desc: "Cleaning jok mobil"
   },
 
   {
     name: "Karpet",
-    icon: "/assets/icons/karpet.png",
+    icon: "assets/icons/karpet.png",
     desc: "Cleaning karpet"
   },
 
   {
     name: "Gorden",
-    icon: "/assets/icons/gorden.png",
+    icon: "assets/icons/gorden.png",
     desc: "Cleaning gorden"
   },
 
   {
     name: "Kursi",
-    icon: "/assets/icons/kursi.png",
+    icon: "assets/icons/kursi.png",
     desc: "Cleaning kursi"
   },
 
   {
     name: "AC",
-    icon: "/assets/icons/ac.png",
+    icon: "assets/icons/ac.png",
     desc: "Cleaning AC"
   },
 
   {
     name: "Home Cleaning",
-    icon: "/assets/icons/homecleaning.png",
+    icon: "assets/icons/homecleaning.png",
     desc: "Cleaning rumah"
   }
 
@@ -391,28 +391,28 @@ const POPULAR_SERVICES = [
 
   {
     name: "Sofa",
-    image: "/assets/popular/sofa.png",
+    image: "assets/popular/sofa.png",
     desc: "Sofa bersih, nyaman dan bebas noda.",
     price: "Mulai Rp50.000"
   },
 
   {
     name: "Kasur",
-    image: "/assets/popular/kasur.png",
+    image: "assets/popular/kasur.png",
     desc: "Bersihkan kasur dari noda dan tungau.",
     price: "Mulai Rp150.000"
   },
 
   {
     name: "Jok Mobil",
-    image: "/assets/popular/jokmobil.png",
+    image: "assets/popular/jokmobil.png",
     desc: "Jok dan interior mobil kembali bersih.",
     price: "Mulai Rp250.000"
   },
 
   {
     name: "Kursi",
-    image: "/assets/popular/kursi.png",
+    image: "assets/popular/kursi.png",
     desc: "Cleaning kursi makan dan kantor.",
     price: "Mulai Rp30.000"
   }
