@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#16a34a">
+<meta name="description" content="Shae Cleaners - Cleaning Service"><title>Shae Cleaners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- HEADER -->
+<header class="top-header">
+<div class="header-inner">
+<div class="brand"><img src="assets/logo.png" alt="Shae Cleaners" class="logo"><div class="brand-text"><strong>Shae Cleaners</strong><span>Cleaning Service</span></div></div><button class="login-btn" onclick="goLogin()"> Login </button></div></header>
+<!-- CONTENT -->
+<main class="main-content">
+<!-- SEARCH -->
+<section class="search-section"><div class="search-box"><span>⌕</span><input type="search" id="searchInput" placeholder="Cari layanan..." autocomplete="off" ></div></section>
+<!-- PROMO -->
+<section class="promo-section">
+<div class="section-title"></div>
+<div class="promo-slider" id="promoSlider">
+<div class="promo-slide active">
+<div><small>Promo Shae Cleaners</small>
+<h3>🔥 Diskon Cleaning</h3>
+<p>Khusus Sofa, Kasur & Jok Mobil</p></div>
+<span class="promo-icon">%</span></div>
+<div class="promo-slide"><div><small>Promo Spesial</small>
+<h3>🛏 Cuci Kasur</h3><p>Mulai dari Rp150.000</p></div>
+<span class="promo-icon">🛏</span></div>
+<div class="promo-slide"><div><small>Booking Online</small><h3>🚗 Paket Jok Mobil</h3>
+<p>Pesan lebih cepat melalui aplikasi</p></div>
+<span class="promo-icon">🚗</span></div>
+<div class="promo-slide"><div><small>Bonus</small>
+<h3>🎁 Gratis Pewangi Premium</h3>
+<p>Untuk promo tertentu</p></div>
+<span class="promo-icon">🎁</span></div></div>
+<div class="slider-dots" id="sliderDots"></div></section>
+<!-- SERVICES -->
+<section class="services-section"><div class="section-title"><h2>Kategori Layanan</h2><button onclick="showAllServices()">Lihat Semua</button></div><div class="service-grid" id="serviceGrid"></div></section><!-- CTA --><section class="booking-banner"><div><small>Butuh jasa cleaning?</small><h3>Pesan sekarang</h3><p>Praktis dan cepat tanpa ribet.</p></div><button onclick="startOrder()"> Pesan </button></section></main>
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+<button class="nav-item active" onclick="goHome()">
+<span class="nav-icon"><img src="assets/nav/home.png" alt="Home"></span></button>
+<button class="nav-item" onclick="goPesanan()"><span class="nav-icon"><img src="assets/nav/pesanan.png" alt="Home"></span></button>
+<button class="nav-item" onclick="goPromo()">
+<span class="nav-icon"><img src="assets/nav/promo.png" alt="Home"></span></button>
+<button class="nav-item" onclick="goAkun()">
+<span class="nav-icon"><img src="assets/nav/akun.png" alt="Home"></span></button></nav><script src="app.js"></script>
+</body>
+</html>
