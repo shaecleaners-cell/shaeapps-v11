@@ -1,0 +1,539 @@
+"akun.css"
+
+:::writing{variant="document" id="62473" title="Shae Cleaners — akun.css"}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #16a34a;
+  --green-dark: #15803d;
+  --green-light: #dcfce7;
+  --bg: #f6f8f6;
+  --white: #ffffff;
+  --text: #172017;
+  --muted: #737973;
+  --border: #e7e9e7;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding-bottom: 80px;
+}
+
+
+/* HEADER */
+
+.page-header {
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 15px;
+
+  background: var(--white);
+
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 20;
+}
+
+.page-header button {
+  width: 38px;
+  height: 38px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--green-light);
+
+  color: var(--green-dark);
+
+  font-size: 27px;
+}
+
+.page-header strong {
+  display: block;
+  font-size: 16px;
+}
+
+.page-header small {
+  display: block;
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: var(--muted);
+}
+
+
+/* CONTAINER */
+
+.account-container {
+  width: 100%;
+  max-width: 600px;
+
+  margin: auto;
+
+  padding: 15px;
+}
+
+
+/* PROFILE */
+
+.profile-card {
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 18px;
+
+  background: var(--green);
+
+  color: white;
+
+  border-radius: 16px;
+
+  margin-bottom: 13px;
+}
+
+.avatar {
+
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+
+  color: var(--green);
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.profile-info h1 {
+  font-size: 18px;
+}
+
+.profile-info p {
+
+  margin-top: 4px;
+
+  font-size: 11px;
+
+  opacity: .9;
+}
+
+
+/* ACCOUNT CARD */
+
+.account-card {
+
+  padding: 16px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  margin-bottom: 13px;
+}
+
+.account-card h2 {
+
+  font-size: 15px;
+
+  margin-bottom: 15px;
+}
+
+.account-card label {
+
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  margin-bottom: 6px;
+
+  margin-top: 12px;
+}
+
+.account-card label:first-of-type {
+  margin-top: 0;
+}
+
+.account-card input,
+.account-card textarea {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: #fafafa;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 13px;
+}
+
+.account-card input:focus,
+.account-card textarea:focus {
+  border-color: var(--green);
+
+  background: white;
+}
+
+.account-card textarea {
+  resize: vertical;
+}
+
+
+/* SAVE */
+
+.save-button {
+
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 12px;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: var(--green);
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 12px;
+}
+
+
+/* STATS */
+
+.stats {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-bottom: 13px;
+}
+
+.stat-card {
+
+  padding: 15px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.stat-card strong {
+
+  display: block;
+
+  color: var(--green-dark);
+
+  font-size: 19px;
+}
+
+.stat-card small {
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+
+/* MENU */
+
+.menu-card {
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  margin-bottom: 13px;
+}
+
+.menu-card button {
+
+  width: 100%;
+
+  min-height: 66px;
+
+  padding: 10px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background: transparent;
+
+  border: 0;
+
+  border-bottom: 1px solid var(--border);
+
+  text-align: left;
+}
+
+.menu-card button:last-child {
+  border-bottom: 0;
+}
+
+.menu-card button > span {
+  font-size: 23px;
+}
+
+.menu-card button div {
+  flex: 1;
+}
+
+.menu-card button strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.menu-card button small {
+
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  color: var(--muted);
+}
+
+.menu-card button b {
+
+  color: #999;
+
+  font-size: 20px;
+}
+
+
+/* BOOKING */
+
+.booking-button {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  background: var(--green);
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 13px;
+}
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 9999;
+
+  width: 100%;
+  height: 66px;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border-top: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  padding-bottom: env(safe-area-inset-bottom);
+
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ITEM */
+
+.nav-item {
+  flex: 1;
+
+  max-width: 150px;
+
+  height: 66px;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #7b827c;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 3px;
+
+  padding: 5px 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* AREA ICON */
+
+.nav-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  transition: 0.2s ease;
+}
+
+
+/* PNG ICON */
+
+.nav-icon img {
+  width: 58px;
+  height: 58px;
+
+  display: block;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* TEXT */
+
+.nav-item > span:last-child {
+  line-height: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* ACTIVE */
+
+.nav-item.active {
+  color: #16a34a;
+
+  font-weight: 700;
+}
+
+.nav-item.active .nav-icon {
+  background: #dcfce7;
+}
+
+.nav-item.active .nav-icon img {
+  width: 58px;
+  height: 58px;
+
+  transform: scale(1.03);
+}
+
+
+/* SAAT DITEKAN */
+
+.nav-item:active .nav-icon img {
+  transform: scale(0.88);
+}
+/* DESKTOP */
+
+@media (min-width: 601px) {
+
+  body {
+    background: #eef2ee;
+  }
+
+  .account-container {
+    min-height: 100vh;
+    background: var(--bg);
+  }
+
+}

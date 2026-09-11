@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16a34a">
+
+  <title>Pesanan - Shae Cleaners</title>
+
+  <link rel="stylesheet" href="pesanan.css">
+</head>
+
+<body>
+
+<header class="page-header">
+  <button onclick="goHome()">‹</button>
+
+  <div>
+    <strong>Pesanan Saya</strong>
+    <small>Riwayat booking cleaning</small>
+  </div>
+</header>
+
+
+<main class="container">
+
+  <div id="orderList"></div>
+
+  <div id="emptyOrder" class="empty-order">
+
+    <div class="empty-icon">📋</div>
+
+    <h2>Belum ada pesanan</h2>
+
+    <p>
+      Pesanan cleaning kamu akan muncul
+      di halaman ini.
+    </p>
+
+    <button onclick="goHome()">
+      Pesan Sekarang
+    </button>
+
+  </div>
+
+</main>
+
+<!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="goHome()">
+     <span class="nav-icon">
+  <img src="assets/nav/home.png" alt="Home">
+</span>
+    </button>
+    <button class="nav-item" onclick="goPesanan()">
+      <span class="nav-icon">
+  <img src="assets/nav/pesanan.png" alt="Home">
+</span>
+      
+    </button>
+    <button class="nav-item" onclick="goPromo()">
+      <span class="nav-icon">
+  <img src="assets/nav/promo.png" alt="Home">
+</span>
+      
+    </button>
+
+    <button class="nav-item" onclick="goAkun()">
+      <span class="nav-icon">
+  <img src="assets/nav/akun.png" alt="Home">
+</span>
+    </button>
+  </nav>
+<script src="pesanan.js"></script>
+
+</body>
+</html>

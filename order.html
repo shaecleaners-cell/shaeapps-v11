@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16a34a">
+
+  <title>Pesan Layanan - Shae Cleaners</title>
+
+  <link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+
+<header class="order-header">
+  <button class="back-btn" onclick="history.back()">‹</button>
+
+  <div>
+    <strong>Pesan Layanan</strong>
+    <small>Shae Cleaners</small>
+  </div>
+</header>
+
+
+<main class="order-container">
+
+  <!-- LAYANAN -->
+  <section class="order-card">
+
+    <label>Layanan</label>
+
+    <select id="layanan">
+      <option value="">Pilih layanan</option>
+    </select>
+
+  </section>
+
+
+  <!-- PAKET -->
+  <section class="order-card">
+
+    <label>Paket / Ukuran</label>
+
+    <select id="paket" disabled>
+      <option value="">Pilih layanan terlebih dahulu</option>
+    </select>
+
+  </section>
+
+
+  <!-- JUMLAH -->
+  <section class="order-card">
+
+    <label>Jumlah</label>
+
+    <div class="qty-box">
+
+      <button type="button" onclick="ubahQty(-1)">−</button>
+
+      <strong id="qty">1</strong>
+
+      <button type="button" onclick="ubahQty(1)">+</button>
+
+    </div>
+
+  </section>
+
+
+  <!-- JADWAL -->
+  <section class="order-card">
+
+    <label>Tanggal Cleaning</label>
+
+    <input type="date" id="tanggal">
+
+    <label class="space-label">Jam Cleaning</label>
+
+    <select id="jam">
+
+      <option value="">Pilih jam</option>
+
+      <option value="08:00">08:00</option>
+      <option value="09:00">09:00</option>
+      <option value="10:00">10:00</option>
+      <option value="11:00">11:00</option>
+      <option value="13:00">13:00</option>
+      <option value="14:00">14:00</option>
+      <option value="15:00">15:00</option>
+      <option value="16:00">16:00</option>
+      <option value="17:00">17:00</option>
+
+    </select>
+
+  </section>
+
+
+  <!-- CUSTOMER -->
+  <section class="order-card">
+
+    <label>Nama</label>
+
+    <input
+      type="text"
+      id="nama"
+      placeholder="Nama pelanggan"
+    >
+
+
+    <label class="space-label">No. WhatsApp</label>
+
+    <input
+      type="tel"
+      id="telepon"
+      placeholder="08xxxxxxxxxx"
+    >
+
+
+    <label class="space-label">Alamat</label>
+
+    <textarea
+      id="alamat"
+      rows="4"
+      placeholder="Alamat lengkap lokasi cleaning"
+    ></textarea>
+
+  </section>
+
+
+  <!-- CATATAN -->
+  <section class="order-card">
+
+    <label>Catatan</label>
+
+    <textarea
+      id="catatan"
+      rows="3"
+      placeholder="Contoh: rumah lantai 2, parkir di depan..."
+    ></textarea>
+
+  </section>
+
+
+  <!-- TOTAL -->
+  <section class="total-card">
+
+    <div>
+      <small>Total Estimasi</small>
+      <strong id="total">Rp0</strong>
+    </div>
+
+  </section>
+
+
+  <!-- BUTTON -->
+  <button
+    class="order-button"
+    onclick="kirimWhatsApp()"
+  >
+    Pesan via WhatsApp
+  </button>
+</main>
+<!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="goHome()">
+     <span class="nav-icon">
+  <img src="assets/nav/home.png" alt="Home">
+</span>
+    </button>
+    <button class="nav-item" onclick="goPesanan()">
+      <span class="nav-icon">
+  <img src="assets/nav/pesanan.png" alt="Home">
+</span>
+      
+    </button>
+    <button class="nav-item" onclick="goPromo()">
+      <span class="nav-icon">
+  <img src="assets/nav/promo.png" alt="Home">
+</span>
+      
+    </button>
+
+    <button class="nav-item" onclick="goAkun()">
+      <span class="nav-icon">
+  <img src="assets/nav/akun.png" alt="Home">
+</span>
+    </button>
+  </nav>
+<script src="order.js"></script>
+
+</body>
+</html>

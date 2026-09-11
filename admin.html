@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#16a34a">
+
+  <title>Admin - Shae Cleaners</title>
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <div>
+      <h1>Shae Cleaners</h1>
+      <p>Panel Admin</p>
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">
+      Keluar
+    </button>
+  </header>
+
+
+  <main class="admin-container">
+
+    <!-- RINGKASAN -->
+    <section class="summary-grid">
+
+      <div class="summary-card">
+        <span>Pesanan Baru</span>
+        <strong id="countWaiting">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Dikonfirmasi</span>
+        <strong id="countConfirmed">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Selesai</span>
+        <strong id="countDone">0</strong>
+      </div>
+
+    </section>
+
+
+    <!-- FILTER -->
+    <section class="filter-card">
+
+      <button
+        class="filter-btn active"
+        data-filter="Semua"
+      >
+        Semua
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Menunggu Konfirmasi"
+      >
+        Menunggu
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Dikonfirmasi"
+      >
+        Dikonfirmasi
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Selesai"
+      >
+        Selesai
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Ditolak"
+      >
+        Ditolak
+      </button>
+
+    </section>
+
+
+    <!-- PESANAN -->
+    <section>
+
+      <div class="section-heading">
+        <h2>Daftar Pesanan</h2>
+
+        <button
+          id="refreshBtn"
+          class="refresh-btn"
+        >
+          ↻ Refresh
+        </button>
+      </div>
+
+      <div id="adminOrderList"></div>
+
+      <div
+        id="adminEmpty"
+        class="admin-empty"
+      >
+        Belum ada pesanan.
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script type="module" src="admin.js"></script>
+
+</body>
+</html>

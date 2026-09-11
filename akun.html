@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16a34a">
+  <title>Akun - Shae Cleaners</title>
+
+  <link rel="stylesheet" href="akun.css">
+</head>
+
+<body>
+
+<header class="page-header">
+
+  <button onclick="goHome()">‹</button>
+
+  <div>
+    <strong>Akun</strong>
+    <small>Profil pelanggan</small>
+  </div>
+
+</header>
+
+
+<main class="account-container">
+
+  <!-- PROFILE -->
+
+  <section class="profile-card">
+
+    <div class="avatar" id="avatar">
+      S
+    </div>
+
+    <div class="profile-info">
+
+      <h1 id="displayNama">
+        Pelanggan Shae
+      </h1>
+
+      <p id="displayTelepon">
+        Belum ada nomor WhatsApp
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- DATA DIRI -->
+
+  <section class="account-card">
+
+    <h2>Data Pelanggan</h2>
+
+    <label>Nama</label>
+
+    <input
+      type="text"
+      id="nama"
+      placeholder="Masukkan nama"
+    >
+
+
+    <label>No. WhatsApp</label>
+
+    <input
+      type="tel"
+      id="telepon"
+      placeholder="08xxxxxxxxxx"
+    >
+
+
+    <label>Alamat</label>
+
+    <textarea
+      id="alamat"
+      rows="4"
+      placeholder="Alamat utama"
+    ></textarea>
+
+
+    <button
+      class="save-button"
+      onclick="simpanProfil()"
+    >
+      Simpan Profil
+    </button>
+
+  </section>
+
+
+  <!-- STATISTIK -->
+
+  <section class="stats">
+
+    <div class="stat-card">
+
+      <strong id="jumlahPesanan">
+        0
+      </strong>
+
+      <small>Total Pesanan</small>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <strong id="totalBelanja">
+        Rp0
+      </strong>
+
+      <small>Total Cleaning</small>
+
+    </div>
+
+  </section>
+
+
+  <!-- MENU -->
+
+  <section class="menu-card">
+
+    <button onclick="goOrders()">
+
+      <span>📋</span>
+
+      <div>
+        <strong>Pesanan Saya</strong>
+        <small>Lihat riwayat booking</small>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+
+    <button onclick="goPromo()">
+
+      <span>🎁</span>
+
+      <div>
+        <strong>Promo</strong>
+        <small>Lihat promo terbaru</small>
+      </div>
+
+      <b>›</b>
+
+    </button>
+
+  </section>
+
+
+  <button
+    class="booking-button"
+    onclick="goOrder()"
+  >
+    Pesan Cleaning
+  </button>
+
+
+</main>
+
+<!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="goHome()">
+     <span class="nav-icon">
+  <img src="assets/nav/home.png" alt="Home">
+</span>
+    </button>
+    <button class="nav-item" onclick="goPesanan()">
+      <span class="nav-icon">
+  <img src="assets/nav/pesanan.png" alt="Home">
+</span>
+      
+    </button>
+    <button class="nav-item" onclick="goPromo()">
+      <span class="nav-icon">
+  <img src="assets/nav/promo.png" alt="Home">
+</span>
+      
+    </button>
+
+    <button class="nav-item" onclick="goAkun()">
+      <span class="nav-icon">
+  <img src="assets/nav/akun.png" alt="Home">
+</span>
+    </button>
+  </nav>
+<script src="akun.js"></script>
+
+</body>
+</html>
