@@ -518,17 +518,15 @@ function generateOrderNumber() {
 
 }
 
-
-/* =========================================
-   KIRIM WHATSAPP
+/* =========================================
+   KIRIM WHATSAPP + FIREBASE
 ========================================= */
 
-function kirimWhatsApp() {
+async function kirimWhatsApp() {
 
   if (!validasiOrder()) {
     return;
   }
-
 
   const service =
     layanan.value;
@@ -544,7 +542,6 @@ function kirimWhatsApp() {
 
   const total =
     price * qty;
-
 
   const nama =
     document.getElementById("nama")
@@ -569,9 +566,56 @@ function kirimWhatsApp() {
     document.getElementById("jam").value;
 
 
+  /* =========================
+     NOMOR ORDER
+  ========================= */
+
   const orderNumber =
     generateOrderNumber();
 
+
+  /* =========================
+     DATA ORDER
+  ========================= */
+
+  const order = {
+
+    id: orderNumber,
+
+    service: service,
+
+    package: packageName,
+
+    qty: qty,
+
+    price: price,
+
+    total: total,
+
+    date: tanggalValue,
+
+    time: jam,
+
+    name: nama,
+
+    phone: telepon,
+
+    address: alamat,
+
+    note: catatan,
+
+    status:
+      "Menunggu Konfirmasi",
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+
+  /* =========================
+     PESAN WHATSAPP
+  ========================= */
 
   const message =
 
@@ -604,26 +648,25 @@ Mohon konfirmasi ketersediaan jadwal.
 Terima kasih 🙏`;
 
 
-  /*
-    GANTI NOMOR DI BAWAH
-    DENGAN NOMOR WHATSAPP SHAE CLEANERS
-    FORMAT: 628xxxxxxxxxx
-  */
+  /* =========================
+     NOMOR WHATSAPP SHAE
+  ========================= */
 
   const nomorShae =
     "6283813138221";
 
 
-  const url =
-    `https://wa.me/${nomorShae}?text=${encodeURIComponent(message)}`;
-
-
-  /* SIMPAN ORDER LOKAL */
+  /* =========================
+     SIMPAN LOCAL
+  ========================= */
 
   const orders =
     JSON.parse(
-      localStorage.getItem("shae_orders") || "[]"
+      localStorage.getItem(
+        "shae_orders"
+      ) || "[]"
     );
+
 
   orders.push({
 
@@ -651,6 +694,9 @@ Terima kasih 🙏`;
 
     catatan: catatan,
 
+    status:
+      "Menunggu Konfirmasi",
+
     createdAt:
       new Date().toISOString()
 
@@ -663,10 +709,38 @@ Terima kasih 🙏`;
   );
 
 
+  /* =========================
+     SIMPAN FIREBASE
+  ========================= */
+
+  const online =
+    await simpanOrderOnline(order);
+
+
+  /* =========================
+     JIKA FIREBASE GAGAL
+  ========================= */
+
+  if (!online) {
+
+    alert(
+      "Pesanan belum tersimpan ke server.\n\nSilakan coba lagi."
+    );
+
+    return;
+  }
+
+
+  /* =========================
+     BUKA WHATSAPP
+  ========================= */
+
+  const url =
+    `https://wa.me/${nomorShae}?text=${encodeURIComponent(message)}`;
+
   window.location.href = url;
 
 }
-
 
 /* =========================================
    LOAD
