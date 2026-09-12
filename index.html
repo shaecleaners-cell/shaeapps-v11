@@ -25,6 +25,59 @@
       <button class="login-btn" onclick="goLogin()">
         Login
       </button>
+      <!-- CUSTOMER LOGIN -->
+<div class="customer-area" id="customerArea">
+
+  <!-- BELUM LOGIN -->
+  <div id="guestMenu" class="guest-menu">
+    <a href="login.html" class="login-btn">
+      Login
+    </a>
+
+    <a href="register.html" class="register-btn">
+      Daftar
+    </a>
+  </div>
+
+
+  <!-- SUDAH LOGIN -->
+  <div id="userMenu" class="user-menu" style="display:none;">
+
+    <button
+      type="button"
+      class="user-button"
+      id="userButton"
+    >
+      <span class="user-icon">👤</span>
+      <span id="customerName">Customer</span>
+      <span class="arrow">⌄</span>
+    </button>
+
+    <div
+      class="user-dropdown"
+      id="userDropdown"
+    >
+
+      <a href="akun.html">
+        👤 Akun Saya
+      </a>
+
+      <a href="pesanan.html">
+        📦 Pesanan Saya
+      </a>
+
+      <button
+        type="button"
+        id="logoutButton"
+      >
+        🚪 Logout
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
     </div>
   </header>
   <!-- CONTENT -->
