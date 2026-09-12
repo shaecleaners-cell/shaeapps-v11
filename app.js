@@ -391,7 +391,7 @@ const POPULAR_SERVICES = [
 
   {
     name: "Sofa",
-    image: "assets/popular/sofa.png",
+    image: "assets/popular/banner1.png",
     desc: "Sofa bersih, nyaman dan bebas noda.",
     price: "Mulai Rp50.000"
   },
