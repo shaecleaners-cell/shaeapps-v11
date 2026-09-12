@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7f6;
+  color: #222;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.auth-logo strong {
+  display: block;
+  color: #1976d2;
+  font-size: 22px;
+}
+
+.auth-logo span {
+  display: block;
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.logo-s {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #16a34a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.auth-box h2 {
+  text-align: center;
+  margin: 0 0 7px;
+  font-size: 24px;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin: 0 0 25px;
+}
+
+.auth-box label {
+  display: block;
+  margin: 14px 0 7px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.auth-box input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+}
+
+.auth-box input:focus {
+  border-color: #16a34a;
+}
+
+.auth-box button {
+  width: 100%;
+  height: 48px;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 22px;
+  background: #16a34a;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-box button:active {
+  transform: scale(.98);
+}
+
+#loginMessage,
+#registerMessage {
+  text-align: center;
+  font-size: 14px;
+  min-height: 20px;
+  margin: 12px 0;
+}
+
+.auth-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-bottom a {
+  color: #16a34a;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.back-home {
+  display: block;
+  text-align: center;
+  margin-top: 22px;
+  color: #777;
+  font-size: 14px;
+  text-decoration: none;
+}
