@@ -1,12 +1,8 @@
 /* =========================================
    SHAE CLEANERS
    ORDER.JS
-   SIMPLE & STABLE
+   FINAL - SIMPLE & STABLE
 ========================================= */
-/* =====================================================
-   TAMBAHAN FIREBASE
-   Letakkan di PALING ATAS order.js
-===================================================== */
 
 import {
   db,
@@ -16,70 +12,11 @@ import {
 } from "./firebase-admin.js";
 
 
-/* =====================================================
-   FUNGSI KIRIM PESANAN KE FIRESTORE
-===================================================== */
+/* =========================================
+   NOMOR WHATSAPP SHAE CLEANERS
+========================================= */
 
-async function simpanOrderOnline(order) {
-
-  try {
-
-    await addDoc(
-      collection(db, "orders"),
-      {
-        orderId: order.id,
-
-        service: order.service || "",
-
-        package: order.package || "",
-
-        qty: Number(order.qty) || 1,
-
-        price: Number(order.price) || 0,
-
-        total: Number(order.total) || 0,
-
-        date: order.date || "",
-
-        time: order.time || "",
-
-        name: order.name || "",
-
-        phone: order.phone || "",
-
-        address: order.address || "",
-
-        note: order.note || "",
-
-        status:
-          order.status ||
-          "Menunggu Konfirmasi",
-
-        createdAt:
-          serverTimestamp()
-
-      }
-    );
-
-
-    console.log(
-      "Pesanan berhasil masuk Firebase"
-    );
-
-    return true;
-
-  } catch (error) {
-
-    console.error(
-      "Firebase gagal:",
-      error
-    );
-
-    return false;
-
-  }
-
-}
+const NOMOR_SHae = "6283813138221";
 
 
 /* =========================================
@@ -89,122 +26,49 @@ async function simpanOrderOnline(order) {
 const PRICE_LIST = {
 
   "Sofa": [
-    {
-      name: "Sofa Standard 1 Seater",
-      price: 50000
-    },
-    {
-      name: "Sofa Lepasan 1 Seater",
-      price: 75000
-    },
-    {
-      name: "Sofa Besar 1 Seater",
-      price: 75000
-    },
-    {
-      name: "Sofa L Standard",
-      price: 250000
-    },
-    {
-      name: "Sofa L Big",
-      price: 300000
-    },
-    {
-      name: "Sofa U",
-      price: 350000
-    }
+    { name: "Sofa Standard 1 Seater", price: 50000 },
+    { name: "Sofa Lepasan 1 Seater", price: 75000 },
+    { name: "Sofa Besar 1 Seater", price: 75000 },
+    { name: "Sofa L Standard", price: 250000 },
+    { name: "Sofa L Big", price: 300000 },
+    { name: "Sofa U", price: 350000 }
   ],
-
 
   "Kasur": [
-    {
-      name: "Mini Single",
-      price: 150000
-    },
-    {
-      name: "Single",
-      price: 180000
-    },
-    {
-      name: "Queen",
-      price: 270000
-    },
-    {
-      name: "King",
-      price: 290000
-    },
-    {
-      name: "Super King",
-      price: 310000
-    }
+    { name: "Mini Single", price: 150000 },
+    { name: "Single", price: 180000 },
+    { name: "Queen", price: 270000 },
+    { name: "King", price: 290000 },
+    { name: "Super King", price: 310000 }
   ],
-
 
   "Jok Mobil": [
-    {
-      name: "Jok Mobil 2 Baris",
-      price: 250000
-    },
-    {
-      name: "Interior Mobil 2 Baris",
-      price: 400000
-    },
-    {
-      name: "Jok Mobil 3 Baris",
-      price: 350000
-    }
+    { name: "Jok Mobil 2 Baris", price: 250000 },
+    { name: "Interior Mobil 2 Baris", price: 400000 },
+    { name: "Jok Mobil 3 Baris", price: 350000 }
   ],
-
 
   "Karpet": [
-    {
-      name: "Karpet / m²",
-      price: 13000
-    }
+    { name: "Karpet / m²", price: 13000 }
   ],
-
 
   "Kursi": [
-    {
-      name: "Kursi Makan Small",
-      price: 30000
-    },
-    {
-      name: "Kursi Makan Standard",
-      price: 35000
-    },
-    {
-      name: "Kursi Kantor Small",
-      price: 30000
-    },
-    {
-      name: "Kursi Kantor Big",
-      price: 40000
-    }
+    { name: "Kursi Makan Small", price: 30000 },
+    { name: "Kursi Makan Standard", price: 35000 },
+    { name: "Kursi Kantor Small", price: 30000 },
+    { name: "Kursi Kantor Big", price: 40000 }
   ],
-
 
   "Gorden": [
-    {
-      name: "Gorden",
-      price: 25000
-    }
+    { name: "Gorden", price: 25000 }
   ],
-
 
   "AC": [
-    {
-      name: "AC Split",
-      price: 75000
-    }
+    { name: "AC Split", price: 75000 }
   ],
 
-
   "Home Cleaning": [
-    {
-      name: "Home Cleaning",
-      price: 150000
-    }
+    { name: "Home Cleaning", price: 150000 }
   ]
 
 };
@@ -228,6 +92,9 @@ const totalElement =
 
 const tanggal =
   document.getElementById("tanggal");
+
+const btnKirim =
+  document.getElementById("btnKirim");
 
 
 let qty = 1;
@@ -259,8 +126,7 @@ function setTanggalMinimum() {
 
   if (!tanggal) return;
 
-  const today =
-    new Date();
+  const today = new Date();
 
   const year =
     today.getFullYear();
@@ -280,7 +146,7 @@ function setTanggalMinimum() {
 
 
 /* =========================================
-   ISI LAYANAN
+   LOAD LAYANAN
 ========================================= */
 
 function loadServices() {
@@ -290,18 +156,20 @@ function loadServices() {
   layanan.innerHTML =
     `<option value="">Pilih layanan</option>`;
 
-  Object.keys(PRICE_LIST)
-    .forEach(service => {
+  Object.keys(PRICE_LIST).forEach(
+    service => {
 
       const option =
         document.createElement("option");
 
       option.value = service;
+
       option.textContent = service;
 
       layanan.appendChild(option);
 
-    });
+    }
+  );
 
 }
 
@@ -310,82 +178,89 @@ function loadServices() {
    PILIH LAYANAN
 ========================================= */
 
-layanan?.addEventListener(
-  "change",
-  function () {
+if (layanan) {
 
-    const service =
-      this.value;
+  layanan.addEventListener(
+    "change",
+    function () {
 
-    paket.innerHTML =
-      `<option value="">Pilih paket / ukuran</option>`;
+      const service =
+        this.value;
 
-    paket.disabled = true;
+      paket.innerHTML =
+        `<option value="">Pilih paket / ukuran</option>`;
 
-    if (!service) {
+      paket.disabled = true;
+
+      if (!service) {
+
+        updateTotal();
+
+        return;
+
+      }
+
+      PRICE_LIST[service].forEach(
+        item => {
+
+          const option =
+            document.createElement("option");
+
+          option.value =
+            item.price;
+
+          option.dataset.name =
+            item.name;
+
+          option.textContent =
+            `${item.name} — ${rupiah(item.price)}`;
+
+          paket.appendChild(option);
+
+        }
+      );
+
+      paket.disabled = false;
 
       updateTotal();
 
-      return;
-
     }
+  );
 
-
-    PRICE_LIST[service]
-      .forEach(item => {
-
-        const option =
-          document.createElement("option");
-
-        option.value =
-          item.price;
-
-        option.dataset.name =
-          item.name;
-
-        option.textContent =
-          `${item.name} — ${rupiah(item.price)}`;
-
-        paket.appendChild(option);
-
-      });
-
-
-    paket.disabled = false;
-
-    updateTotal();
-
-  }
-);
+}
 
 
 /* =========================================
    PILIH PAKET
 ========================================= */
 
-paket?.addEventListener(
-  "change",
-  updateTotal
-);
+if (paket) {
+
+  paket.addEventListener(
+    "change",
+    updateTotal
+  );
+
+}
 
 
 /* =========================================
-   QTY
+   QUANTITY
 ========================================= */
 
 function ubahQty(value) {
 
   qty += value;
 
-  if (qty < 1) {
-    qty = 1;
-  }
+  if (qty < 1) qty = 1;
 
-  if (qty > 99) {
-    qty = 99;
-  }
+  if (qty > 99) qty = 99;
 
-  qtyElement.textContent = qty;
+  if (qtyElement) {
+
+    qtyElement.textContent = qty;
+
+  }
 
   updateTotal();
 
@@ -404,8 +279,12 @@ function updateTotal() {
   const total =
     price * qty;
 
-  totalElement.textContent =
-    rupiah(total);
+  if (totalElement) {
+
+    totalElement.textContent =
+      rupiah(total);
+
+  }
 
 }
 
@@ -417,18 +296,23 @@ function updateTotal() {
 function validasiOrder() {
 
   const nama =
-    document.getElementById("nama").value.trim();
+    document.getElementById("nama")
+      ?.value.trim();
 
   const telepon =
-    document.getElementById("telepon").value.trim();
+    document.getElementById("telepon")
+      ?.value.trim();
 
   const alamat =
-    document.getElementById("alamat").value.trim();
+    document.getElementById("alamat")
+      ?.value.trim();
 
   const jam =
-    document.getElementById("jam").value;
+    document.getElementById("jam")
+      ?.value;
 
-  if (!layanan.value) {
+
+  if (!layanan?.value) {
 
     alert("Silakan pilih layanan.");
 
@@ -436,7 +320,7 @@ function validasiOrder() {
 
   }
 
-  if (!paket.value) {
+  if (!paket?.value) {
 
     alert("Silakan pilih paket / ukuran.");
 
@@ -444,7 +328,7 @@ function validasiOrder() {
 
   }
 
-  if (!tanggal.value) {
+  if (!tanggal?.value) {
 
     alert("Silakan pilih tanggal cleaning.");
 
@@ -495,8 +379,7 @@ function validasiOrder() {
 
 function generateOrderNumber() {
 
-  const now =
-    new Date();
+  const now = new Date();
 
   const year =
     now.getFullYear();
@@ -518,21 +401,88 @@ function generateOrderNumber() {
 
 }
 
-/* =========================================
-   KIRIM WHATSAPP + FIREBASE
+
+/* =========================================
+   SIMPAN KE FIREBASE
+   FIREBASE TIDAK MENGHALANGI WHATSAPP
 ========================================= */
 
-async function kirimWhatsApp() {
+async function simpanOrderOnline(order) {
+
+  try {
+
+    await addDoc(
+      collection(db, "orders"),
+      {
+
+        orderId: order.id,
+
+        service: order.service || "",
+
+        package: order.package || "",
+
+        qty: Number(order.qty) || 1,
+
+        price: Number(order.price) || 0,
+
+        total: Number(order.total) || 0,
+
+        date: order.date || "",
+
+        time: order.time || "",
+
+        name: order.name || "",
+
+        phone: order.phone || "",
+
+        address: order.address || "",
+
+        note: order.note || "",
+
+        status:
+          order.status ||
+          "Menunggu Konfirmasi",
+
+        createdAt:
+          serverTimestamp()
+
+      }
+    );
+
+    console.log(
+      "Pesanan berhasil masuk Firebase"
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Firebase gagal:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   KIRIM WHATSAPP
+========================================= */
+
+function kirimWhatsApp() {
 
   if (!validasiOrder()) {
     return;
   }
 
+
   const service =
     layanan.value;
 
   const selected =
-    paket.options[paket.selectedIndex];
+    paket.options[
+      paket.selectedIndex
+    ];
 
   const packageName =
     selected.dataset.name;
@@ -542,6 +492,7 @@ async function kirimWhatsApp() {
 
   const total =
     price * qty;
+
 
   const nama =
     document.getElementById("nama")
@@ -557,87 +508,63 @@ async function kirimWhatsApp() {
 
   const catatan =
     document.getElementById("catatan")
-      .value.trim();
+      ?.value.trim() || "";
 
   const tanggalValue =
     tanggal.value;
 
   const jam =
-    document.getElementById("jam").value;
+    document.getElementById("jam")
+      .value;
 
 
-  /* =========================
+  /* =================================
      NOMOR ORDER
-  ========================= */
+  ================================= */
 
   const orderNumber =
     generateOrderNumber();
 
 
-  /* =========================
-   SIMPAN LOCAL
-========================= */
+  /* =================================
+     DATA ORDER
+  ================================= */
 
-const orders =
-  JSON.parse(
-    localStorage.getItem("shae_orders") || "[]"
-  );
+  const order = {
 
-orders.push({
-  id: orderNumber,
-  layanan: service,
-  paket: packageName,
-  qty: qty,
-  harga: price,
-  total: total,
-  tanggal: tanggalValue,
-  jam: jam,
-  nama: nama,
-  telepon: telepon,
-  alamat: alamat,
-  catatan: catatan,
-  status: "Menunggu Konfirmasi",
-  createdAt: new Date().toISOString()
-});
+    id: orderNumber,
 
-localStorage.setItem(
-  "shae_orders",
-  JSON.stringify(orders)
-);
+    service: service,
 
+    package: packageName,
 
-/* =========================
-   BUAT LINK WHATSAPP
-========================= */
+    qty: qty,
 
-const url =
-  `https://wa.me/${nomorShae}?text=${encodeURIComponent(message)}`;
+    price: price,
+
+    total: total,
+
+    date: tanggalValue,
+
+    time: jam,
+
+    name: nama,
+
+    phone: telepon,
+
+    address: alamat,
+
+    note: catatan,
+
+    status:
+      "Menunggu Konfirmasi"
+
+  };
 
 
-/* =========================
-   LANGSUNG BUKA WHATSAPP
-========================= */
-
-window.location.href = url;
-
-
-/* =========================
-   FIREBASE
-   TIDAK MENGHALANGI WA
-========================= */
-
-simpanOrderOnline(order)
-  .then(() => {
-    console.log("Order Firebase selesai");
-  })
-  .catch((error) => {
-    console.error("Firebase gagal:", error);
-  });
-
-
-  /* =========================
+  /* =================================
      PESAN WHATSAPP
-  ========================= */
+  ================================= */
 
   const message =
 
@@ -670,17 +597,9 @@ Mohon konfirmasi ketersediaan jadwal.
 Terima kasih 🙏`;
 
 
-  /* =========================
-     NOMOR WHATSAPP SHAE
-  ========================= */
-
-  const nomorShae =
-    "6283813138221";
-
-
-  /* =========================
+  /* =================================
      SIMPAN LOCAL
-  ========================= */
+  ================================= */
 
   const orders =
     JSON.parse(
@@ -731,41 +650,33 @@ Terima kasih 🙏`;
   );
 
 
-  /* =========================
-     SIMPAN FIREBASE
-  ========================= */
-
-  const online =
-    await simpanOrderOnline(order);
-
-
-  /* =========================
-     JIKA FIREBASE GAGAL
-  ========================= */
-
-  if (!online) {
-
-    alert(
-      "Pesanan belum tersimpan ke server.\n\nSilakan coba lagi."
-    );
-
-    return;
-  }
-
-
-  /* =========================
-     BUKA WHATSAPP
-  ========================= */
+  /* =================================
+     BUAT LINK WHATSAPP
+  ================================= */
 
   const url =
-    `https://wa.me/${nomorShae}?text=${encodeURIComponent(message)}`;
+    `https://wa.me/${NOMOR_SHae}?text=${encodeURIComponent(message)}`;
+
+
+  /* =================================
+     FIREBASE DIJALANKAN
+     TANPA MENUNGGU
+  ================================= */
+
+  simpanOrderOnline(order);
+
+
+  /* =================================
+     LANGSUNG BUKA WHATSAPP
+  ================================= */
 
   window.location.href = url;
 
 }
 
+
 /* =========================================
-   LOAD
+   DOM READY
 ========================================= */
 
 document.addEventListener(
@@ -777,7 +688,9 @@ document.addEventListener(
     setTanggalMinimum();
 
 
-    /* Ambil layanan dari HOME */
+    /* ==============================
+       LAYANAN DARI HOME
+    ============================== */
 
     const selectedService =
       localStorage.getItem(
@@ -799,6 +712,55 @@ document.addEventListener(
 
       localStorage.removeItem(
         "shae_selected_service"
+      );
+
+    }
+
+
+    /* ==============================
+       TOMBOL QUANTITY
+    ============================== */
+
+    const btnMinus =
+      document.getElementById(
+        "btnMinus"
+      );
+
+    const btnPlus =
+      document.getElementById(
+        "btnPlus"
+      );
+
+
+    if (btnMinus) {
+
+      btnMinus.addEventListener(
+        "click",
+        () => ubahQty(-1)
+      );
+
+    }
+
+
+    if (btnPlus) {
+
+      btnPlus.addEventListener(
+        "click",
+        () => ubahQty(1)
+      );
+
+    }
+
+
+    /* ==============================
+       TOMBOL WHATSAPP
+    ============================== */
+
+    if (btnKirim) {
+
+      btnKirim.addEventListener(
+        "click",
+        kirimWhatsApp
       );
 
     }
