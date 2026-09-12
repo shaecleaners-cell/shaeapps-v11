@@ -575,42 +575,64 @@ async function kirimWhatsApp() {
 
 
   /* =========================
-     DATA ORDER
-  ========================= */
+   SIMPAN LOCAL
+========================= */
 
-  const order = {
+const orders =
+  JSON.parse(
+    localStorage.getItem("shae_orders") || "[]"
+  );
 
-    id: orderNumber,
+orders.push({
+  id: orderNumber,
+  layanan: service,
+  paket: packageName,
+  qty: qty,
+  harga: price,
+  total: total,
+  tanggal: tanggalValue,
+  jam: jam,
+  nama: nama,
+  telepon: telepon,
+  alamat: alamat,
+  catatan: catatan,
+  status: "Menunggu Konfirmasi",
+  createdAt: new Date().toISOString()
+});
 
-    service: service,
+localStorage.setItem(
+  "shae_orders",
+  JSON.stringify(orders)
+);
 
-    package: packageName,
 
-    qty: qty,
+/* =========================
+   BUAT LINK WHATSAPP
+========================= */
 
-    price: price,
+const url =
+  `https://wa.me/${nomorShae}?text=${encodeURIComponent(message)}`;
 
-    total: total,
 
-    date: tanggalValue,
+/* =========================
+   LANGSUNG BUKA WHATSAPP
+========================= */
 
-    time: jam,
+window.location.href = url;
 
-    name: nama,
 
-    phone: telepon,
+/* =========================
+   FIREBASE
+   TIDAK MENGHALANGI WA
+========================= */
 
-    address: alamat,
-
-    note: catatan,
-
-    status:
-      "Menunggu Konfirmasi",
-
-    createdAt:
-      new Date().toISOString()
-
-  };
+simpanOrderOnline(order)
+  .then(() => {
+    console.log("Order Firebase selesai");
+  })
+  .catch((error) => {
+    console.error("Firebase gagal:", error);
+  });
 
 
   /* =========================
