@@ -2,7 +2,7 @@ import {
   auth,
   onAuthStateChanged,
   signInWithEmailAndPassword
-} from ".https://shaeapps.wap.sh/firebase-admin.js";
+} from "./firebase-admin.js";
 
 
 const form =
