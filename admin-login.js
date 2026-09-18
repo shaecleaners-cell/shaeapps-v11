@@ -1,7 +1,6 @@
 /* =====================================================
    SHAE CLEANERS
    ADMIN LOGIN
-   FIREBASE AUTH
 ===================================================== */
 
 import {
@@ -15,72 +14,85 @@ import {
    ELEMENT
 ===================================================== */
 
-const form = document.getElementById("adminLoginForm");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const loginBtn = document.getElementById("loginBtn");
-const message = document.getElementById("loginMessage");
+const form =
+  document.getElementById("adminLoginForm");
+
+const emailInput =
+  document.getElementById("email");
+
+const passwordInput =
+  document.getElementById("password");
+
+const loginBtn =
+  document.getElementById("loginBtn");
+
+const message =
+  document.getElementById("loginMessage");
 
 
 /* =====================================================
-   CEK ELEMENT
+   MESSAGE
 ===================================================== */
 
-if (
-  !form ||
-  !emailInput ||
-  !passwordInput ||
-  !loginBtn ||
-  !message
-) {
+function showMessage(text, type = "") {
 
-  console.error(
-    "Element login admin tidak lengkap."
-  );
+  message.textContent = text;
+
+  message.className =
+    "login-message";
+
+  if (type) {
+    message.classList.add(type);
+  }
 
 }
 
 
 /* =====================================================
-   CEK SESSION FIREBASE
+   CEK SESSION
 ===================================================== */
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(
+  auth,
+  user => {
 
-  console.log(
-    "Status Firebase Auth:",
-    user ? user.email : "Belum login"
-  );
-
-
-  if (user) {
-
-    showMessage(
-      "Login sudah aktif. Membuka panel admin...",
-      "success"
+    console.log(
+      "Firebase Auth:",
+      user
+        ? "LOGIN - " + user.email
+        : "BELUM LOGIN"
     );
 
 
-    setTimeout(() => {
+    if (user) {
 
-      window.location.replace(
-        "admin.html"
+      showMessage(
+        "Session admin ditemukan. Membuka panel...",
+        "success"
       );
 
-    }, 300);
+
+      setTimeout(() => {
+
+        window.location.replace(
+          "admin.html"
+        );
+
+      }, 300);
+
+    }
 
   }
-
-});
+);
 
 
 /* =====================================================
-   LOGIN
+   FORM LOGIN
 ===================================================== */
 
 form.addEventListener(
   "submit",
-  async (event) => {
+  async event => {
 
     event.preventDefault();
 
@@ -125,7 +137,7 @@ form.addEventListener(
 
 
     /* ===============================
-       BUTTON LOADING
+       LOADING
     =============================== */
 
     loginBtn.disabled = true;
@@ -135,7 +147,7 @@ form.addEventListener(
 
 
     showMessage(
-      "Memeriksa akun admin...",
+      "Memeriksa login admin...",
       "loading"
     );
 
@@ -143,13 +155,13 @@ form.addEventListener(
     try {
 
       console.log(
-        "Mencoba login:",
+        "Login Firebase:",
         email
       );
 
 
       /* ===============================
-         FIREBASE LOGIN
+         LOGIN FIREBASE
       =============================== */
 
       const result =
@@ -161,21 +173,20 @@ form.addEventListener(
 
 
       console.log(
-        "LOGIN BERHASIL:",
+        "Login berhasil:",
         result.user.email
       );
 
 
       showMessage(
-        "Login berhasil. Membuka panel admin...",
+        "Login berhasil. Membuka admin...",
         "success"
       );
 
 
-      /*
-        Tunggu Firebase memastikan
-        session sudah aktif.
-      */
+      /* ===============================
+         REDIRECT
+      =============================== */
 
       setTimeout(() => {
 
@@ -189,7 +200,7 @@ form.addEventListener(
     } catch (error) {
 
       console.error(
-        "FIREBASE LOGIN ERROR:",
+        "Firebase Login Error:",
         error
       );
 
@@ -219,7 +230,7 @@ form.addEventListener(
         case "auth/user-not-found":
 
           text =
-            "Akun admin tidak ditemukan di Firebase.";
+            "Akun admin tidak ditemukan.";
 
           break;
 
@@ -232,18 +243,18 @@ form.addEventListener(
           break;
 
 
-        case "auth/too-many-requests":
-
-          text =
-            "Terlalu banyak percobaan login. Coba beberapa saat lagi.";
-
-          break;
-
-
         case "auth/user-disabled":
 
           text =
             "Akun admin dinonaktifkan.";
+
+          break;
+
+
+        case "auth/too-many-requests":
+
+          text =
+            "Terlalu banyak percobaan. Coba lagi nanti.";
 
           break;
 
@@ -259,7 +270,7 @@ form.addEventListener(
         case "auth/operation-not-allowed":
 
           text =
-            "Login Email/Password belum diaktifkan di Firebase Authentication.";
+            "Login Email/Password belum diaktifkan di Firebase.";
 
           break;
 
@@ -270,8 +281,6 @@ form.addEventListener(
             "Login gagal: " +
             (error.code || error.message);
 
-          break;
-
       }
 
 
@@ -280,12 +289,6 @@ form.addEventListener(
         "error"
       );
 
-
-      /*
-        Jangan kosongkan email/password.
-        User bisa langsung memperbaiki
-        data yang salah.
-      */
 
       loginBtn.disabled = false;
 
@@ -296,36 +299,3 @@ form.addEventListener(
 
   }
 );
-
-
-/* =====================================================
-   MESSAGE
-===================================================== */
-
-function showMessage(
-  text,
-  type
-) {
-
-  if (!message) {
-    return;
-  }
-
-
-  message.textContent =
-    text;
-
-
-  message.className =
-    "login-message";
-
-
-  if (type) {
-
-    message.classList.add(
-      type
-    );
-
-  }
-
-}
