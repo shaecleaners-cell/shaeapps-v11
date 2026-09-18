@@ -22,6 +22,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
 const firebaseConfig = {
   apiKey: "AIzaSyDJuYtGMSCNe4eSNo6T5MNNEJcdYW46X1s",
   authDomain: "shae-cleaners.firebaseapp.com",
@@ -32,12 +36,33 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
-export const auth = getAuth(app);
+const app =
+  initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
 
+/* =====================================================
+   AUTH
+===================================================== */
+
+export const auth =
+  getAuth(app);
+
+
+/* =====================================================
+   FIRESTORE
+===================================================== */
+
+export const db =
+  getFirestore(app);
+
+
+/* =====================================================
+   EXPORT
+===================================================== */
 
 export {
   onAuthStateChanged,
