@@ -60,12 +60,11 @@
 
 
         <button
-          type="submit"
-          id="loginBtn"
-        >
-          Masuk Admin
-        </button>
-
+  type="button"
+  id="loginBtn"
+>
+  Masuk Admin
+</button>
       </form>
 
 
@@ -86,7 +85,9 @@
 
   </main>
 
-
+loginBtn.addEventListener("click", () => {
+  alert("TOMBOL LOGIN TERDETEKSI");
+});
   <script
     type="module"
     src="admin-login.js"
