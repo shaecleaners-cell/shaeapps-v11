@@ -47,10 +47,17 @@ const logoutBtn =
 /* =====================================================
    CEK LOGIN ADMIN
 ===================================================== */
-
 onAuthStateChanged(
   auth,
   user => {
+
+    console.log(
+      "ADMIN AUTH:",
+      user
+        ? user.email
+        : "BELUM LOGIN"
+    );
+
 
     if (!user) {
 
@@ -59,11 +66,12 @@ onAuthStateChanged(
       );
 
       return;
+
     }
 
 
     console.log(
-      "Admin login:",
+      "Admin berhasil masuk:",
       user.email
     );
 
@@ -72,6 +80,7 @@ onAuthStateChanged(
 
   }
 );
+
 
 
 /* =====================================================
