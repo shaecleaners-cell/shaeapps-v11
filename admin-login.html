@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,6 @@
         Login Panel Admin
       </p>
 
-
       <form id="adminLoginForm">
 
         <label for="email">
@@ -45,7 +45,6 @@
           required
         >
 
-
         <label for="password">
           Password
         </label>
@@ -58,23 +57,22 @@
           required
         >
 
-
         <button
-  type="button"
-  id="loginBtn"
->
-  Masuk Admin
-</button>
-      </form>
+          type="submit"
+          id="loginBtn"
+        >
+          Masuk Admin
+        </button>
 
+      </form>
 
       <p
         id="loginMessage"
         class="login-message"
       ></p>
 
-
       <button
+        type="button"
         class="back-btn"
         onclick="location.href='index.html'"
       >
@@ -85,12 +83,10 @@
 
   </main>
 
-loginBtn.addEventListener("click", () => {
-  alert("TOMBOL LOGIN TERDETEKSI");
-});
   <script
     type="module"
     src="admin-login.js"
   ></script>
+
 </body>
 </html>
