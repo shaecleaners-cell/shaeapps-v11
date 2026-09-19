@@ -27,12 +27,12 @@ import {
 ===================================================== */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDJuYtGMSCNe4eSNo6T5MNNEJcdYW46X1s",
-  authDomain: "shae-cleaners.firebaseapp.com",
-  projectId: "shae-cleaners",
-  storageBucket: "shae-cleaners.firebasestorage.app",
-  messagingSenderId: "886460432923",
-  appId: "1:839960858623:web:1aa97b91f54924cd10e1ca"
+  apiKey: "AIzaSyDPUFuYlCaMg1yUE3dm9KWWXSC5T9jotwI",
+  authDomain: "https://shae-cleaners-534d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "shae-cleaners-534d1",
+  storageBucket: "shae-cleaners-534d1.firebasestorage.app",
+  messagingSenderId: "705887888327",
+  appId: "1:705887888327:android:c425d5dc8fac993c8eafe2"
 };
 
 
